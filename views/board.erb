@@ -16,8 +16,19 @@
 <div style="border: 1px solid #000000;">
 <strong>You</strong>
 <%= erb :vitals, :locals => {:player => player} %>
+</div>
+
+<br />
+
+<div style="border: 1px solid #000000;">
+  <strong><%= User.get(opponent.user_id).username %></strong>
+  <%= erb :vitals, :locals => {:player => opponent} %>
+</div>
+
+<br />
+
 <% if player.turn %>
-  ------
+  <strong>Play</strong>
   <br />
   <% player.hand.each_with_index do |card, index| %>
     <span style="color:  <%= @game.vital_colour(card.cost_type) %> ;">
@@ -33,15 +44,8 @@
     <br />
   <% end %>
 <% end %>
-</div>
 
 <br />
-
-<div style="border: 1px solid #000000;">
-  <strong><%= User.get(opponent.user_id).username %></strong>
-  <%= erb :vitals, :locals => {:player => opponent} %>
-</div>
-
 <br />
 
 <div>
