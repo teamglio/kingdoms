@@ -1,4 +1,4 @@
-require_relative 'lib/kingdoms.rb'
+require_relative 'app.rb'
 
 namespace :db do
   task :clean do
