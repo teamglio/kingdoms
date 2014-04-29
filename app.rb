@@ -74,7 +74,7 @@ post '/new-user' do
 end
 
 get '/new-game-vs-player' do #I'll have to do something with this route...
-  if user.games.size < 3
+  if user.games(:active => true).size < 3
     random_user_in_lobby = User.all(:in_lobby => true).sample
     user.update(:in_lobby => true)
     if random_user_in_lobby && random_user_in_lobby != user

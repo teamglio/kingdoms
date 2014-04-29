@@ -7,9 +7,9 @@
 
 <div>
   <% if player.turn %>
-    <p><strong>Your Turn</strong>. <%= (User.get(opponent.user_id).username + " " + opponent.last_move) if opponent.last_move %></p>
+    <p style='color: #1e8a2d;'><strong>Your Turn</strong>. <%= (User.get(opponent.user_id).username + " " + opponent.last_move) if opponent.last_move %></p>
   <% elsif opponent.turn %>
-    <p><strong>Opponent's Turn</strong></span></p>
+    <p style='color: #FF0000;'><strong>Opponent's Turn</strong></span></p>
   <% end %>  
 </div>
 
