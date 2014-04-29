@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/flash'
+require 'nestful'
 require_relative 'lib/kingdoms.rb'
 
 enable :sessions
@@ -31,6 +32,14 @@ helpers do
     elsif @game.player_who_surrendered == @game.opponent(user)
         erb "<span style='color: green;'>Your opponent surrendered. You win!</span>"
     end
+  end
+end
+
+before do
+  begin
+    @mixup_ad = Nestful.get("http://serve.mixup.hapnic.com/#{ENV['MXIT_APP_NAME']}").body
+  rescue
+    @mixup_ad = 'Nothing to see here for now'    
   end
 end
 

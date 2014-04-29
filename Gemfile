@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'thin'
 gem 'sinatra-flash'
 gem 'dm-postgres-adapter'
+gem 'nestful'
 
 group :test do
   gem 'rspec' 
