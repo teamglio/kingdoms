@@ -146,3 +146,7 @@ end
 get '/scores' do
   erb :scores
 end
+
+get '/stats' do
+  erb "Users: #{User.all.count} <br /> Active games: #{Game.all(:active => true).size} <br /> Inactive games: #{Game.all(:active => false).size}"
+end
