@@ -1,6 +1,3 @@
-require 'dotenv'
-Dotenv.load
-
 require_relative 'kingdoms/mxit_user.rb'
 require_relative 'kingdoms/user.rb'
 require_relative 'kingdoms/game.rb'
