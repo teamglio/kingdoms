@@ -159,6 +159,11 @@ get '/scores' do
   erb :scores
 end
 
+get '/help' do
+  @game_config_file = YAML.load(open(game_config_file_path))
+  erb :help
+end
+
 get '/stats' do
   erb "Users: #{User.all.count} <br /> Active games: #{Game.all(:active => true).size} <br /> Inactive games: #{Game.all(:active => false).size}"
 end

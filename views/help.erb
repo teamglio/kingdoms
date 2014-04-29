@@ -1,0 +1,25 @@
+
+
+<div>
+  <p><strong>Kingdoms</strong> is very easy to play if you understand the <strong>basics</strong>.</p>
+  
+  <u><strong>Goal</strong></u>
+  <p>A game of Kingdoms is played by <strong>two players</strong>. The <strong>goal</strong> of the game is to <strong>get your <strong style="color: <%= @game_config_file['colours']['health'] %>"><%= @game_config_file['labels']['health'] %></strong> to 100</strong> or to <strong>get your opponent's <strong style="color: <%= @game_config_file['colours']['health'] %>"><%= @game_config_file['labels']['health'] %></strong> to 0</strong>. The game will end if one of those conditions are met.</p> 
+  
+  <u><strong>Vitals</strong></u>
+  <p>You have two very important vitals: <strong style="color: <%= @game_config_file['colours']['health'] %>"><%= @game_config_file['labels']['health'] %></strong> and <strong style="color: <%= @game_config_file['colours']['defence'] %>"><%= @game_config_file['labels']['defence'] %></strong>. Any normal attacks will first hit your <strong style="color: <%= @game_config_file['colours']['defence'] %>"><%= @game_config_file['labels']['defence'] %></strong> before it hit your <strong style="color: <%= @game_config_file['colours']['health'] %>"><%= @game_config_file['labels']['health'] %></strong>. Protect your <strong style="color: <%= @game_config_file['colours']['health'] %>"><%= @game_config_file['labels']['health'] %></strong>! If you can get it to 100 you win, but if you allow it to get to 0, you lose! </p> 
+
+ <u><strong>Resources</strong></u>
+  <p>You have three kinds of resources:
+  <strong style="color: <%= @game_config_file['colours']['matter'] %>"><%= @game_config_file['labels']['matter'] %></strong>,
+  <strong style="color: <%= @game_config_file['colours']['energy'] %>"><%= @game_config_file['labels']['energy'] %></strong> and
+  <strong style="color: <%= @game_config_file['colours']['intelligence'] %>"><%= @game_config_file['labels']['intelligence'] %></strong>.
+  Every turn, you get a certain number of these resources, as indicated by the number in brackets. For example, if you see (+2), you will get 2 of that particular resource each turn. You use these resources to play <strong>cards</strong>.
+  </p>
+
+  <u><strong>Cards</strong></u>
+  <p>When it is your turn, you can play a card from your hand, but only if you can <strong>afford</strong> that card. Each card cost a certain amount of <strong style="color: <%= @game_config_file['colours']['matter'] %>"><%= @game_config_file['labels']['matter'] %></strong>, <strong style="color: <%= @game_config_file['colours']['energy'] %>"><%= @game_config_file['labels']['energy'] %></strong> or <strong style="color: <%= @game_config_file['colours']['intelligence'] %>"><%= @game_config_file['labels']['intelligence'] %></strong>. Cards that you can afford will be clickable, those that you can't afford won't be clickable.</p>
+  <p>If you play a card, you will automatically draw another random card so that you always have 8 cards in your hand.</p>
+  <p>If you don't want a card in your hand, you can <strong>discard</strong> it by clicking the <strong>X</strong>. We will automatically draw another random card for you.</p> 
+  <p>Each card does something different. Some of them deal damage to you opponent, others increase your defence, and there are even some cards take take some of your opponent's resources and give it to you! Make sure you read the card description to understand what the card does.</p>
+</div>
