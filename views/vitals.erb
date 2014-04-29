@@ -1,0 +1,20 @@
+<div>
+  <span style="color: <%= @game.vital_colour('health') %>">
+    <%= @game.vital_label('health').capitalize %> <%= player.health %>
+  </span>
+  <span style="color: <%= @game.vital_colour('defence') %>">
+    <%= @game.vital_label('defence').capitalize %> <%= player.defence %>
+  </span>
+  <br />
+  <span style="color: <%= @game.vital_colour('matter') %>">
+    <%= @game.vital_label('matter').capitalize %> <%= player.matter %> (+ <%= player.matter_rate %>)
+  </span>
+  <br />
+  <span style="color: <%= @game.vital_colour('energy') %>">
+    <%= @game.vital_label('energy').capitalize %> <%= player.energy %> (+ <%= player.energy_rate %>)
+  </span>
+  <br />
+  <span style="color: <%= @game.vital_colour('intelligence') %>">
+    <%= @game.vital_label('intelligence').capitalize %> <%= player.intelligence %> (+ <%= player.intelligence_rate %>)
+  </span>
+</div>

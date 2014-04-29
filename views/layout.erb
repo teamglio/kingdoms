@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <style>
+      th,td {padding:15px}
+      .flash.error {color: red}
+    </style>
+  </head>
+  <body>
+  	<%= erb :header %>	
+  	<div>
+      <a href="<%= url('/') %>">Home</a> <!--<a href="<%= url '/reward' %>">Airtime</a> |--> | <a href="<%= url '/scores' %>">Scores</a> | <a href="/help">Help</a>
+    <div>
+    <div>
+    <%= user.username %> | Won: <%= user.games_won %>
+    </div>
+    <br />
+    <div>
+      <% #styled_flash %>
+    </div>
+    <div>
+  		<%= yield %>
+  	</div>
+  	<br />
+  	<%= erb :footer %>
+  </body>
+</html>

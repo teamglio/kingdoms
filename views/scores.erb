@@ -1,0 +1,3 @@
+<% User.all(:limit => 10, :order => [:games_won.desc]).each_with_index do |user, index| %>
+  <%= index + 1%>. <%= user.username %> - <%= user.games_won %> games won<br />
+<% end %>

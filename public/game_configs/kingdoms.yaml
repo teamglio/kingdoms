@@ -1,0 +1,60 @@
+---
+# kingdoms deck
+{
+  values: {
+    health: 50,
+    defence: 50,
+    matter: 5,
+    energy: 5,
+    intelligence: 5,
+    matter_rate: 2,
+    energy_rate: 2,
+    intelligence_rate: 2,
+    },
+  labels: {
+    health: "castle",
+    defence: "walls",
+    matter: "bricks",
+    energy: "swords",
+    intelligence: "mana",
+    },
+  colours: {
+    health: "#FF0000",
+    defence: "#0000FF",
+    matter: "#1e8a2d",
+    energy: "#FF9900",
+    intelligence: "#FF00FF"
+  },    
+  deck: [
+      {number: 3, type: 'defender', name: 'Inner wall', effect: 3, cost: 1, cost_type: 'matter'},
+      {number: 2, type: 'healer', name: 'Repair castle', effect: 6, cost: 3, cost_type: 'matter'},
+      {number: 3, type: 'defender', name: 'Outer wall', effect: 6, cost: 3, cost_type: 'matter'},
+      {number: 3, type: 'reservist', name: 'Emergency wall', effect: 8, cost: 5, cost_type: 'matter'},
+      {number: 3, type: 'healer', name: 'Tower', effect: 5, cost: 5, cost_type: 'matter'},
+      {number: 2, type: 'trainer', name: 'Brick forge', effect: 1, effect_type: 'matter', cost: 8, cost_type: 'matter'}, 
+      {number: 2, type: 'leech', name: 'Siege', effect: 8, cost: 10, cost_type: 'matter'},
+      {number: 3, type: 'defender', name: 'Moat', effect: 22, cost: 12, cost_type: 'matter'},
+      {number: 3, type: 'healer', name: 'Keep', effect: 20, cost: 18, cost_type: 'matter'},
+      {number: 2, type: 'healer', name: 'Fort', effect: 32, cost: 39, cost_type: 'matter'},
+      {number: 2, type: 'attacker', name: 'Archer', effect: 2, cost: 1, cost_type: 'energy'},
+      {number: 2, type: 'attacker', name: 'Swordsman', effect: 3, cost: 2, cost_type: 'energy'},
+      {number: 2, type: 'attacker', name: 'Spearman', effect: 4, cost: 1, cost_type: 'energy'},
+      {number: 3, type: 'attacker', name: 'Platoon', effect: 6, cost: 4, cost_type: 'energy'},
+      {number: 3, type: 'trainer', name: 'Barracks', effect: 1, effect_type: 'energy', cost: 8, cost_type: 'energy'},
+      {number: 3, type: 'attacker', name: 'Knight', effect: 12, cost: 10, cost_type: 'energy'},
+      {number: 3, type: 'saboteur', name: 'Saboteur', effect: 4, cost: 12, cost_type: 'energy'},
+      {number: 2, type: 'thief', name: 'Thief', effect: 5, cost: 15, cost_type: 'energy'},
+      {number: 2, type: 'poisoner', name: 'Catapult', effect: 10, cost: 10, cost_type: 'energy'},
+      {number: 3, type: 'attacker', name: 'Assassin', effect: 32, cost: 38, cost_type: 'energy'},
+      {number: 3, type: 'stocker', name: 'Conjure bricks', effect: 8, effect_type: 'matter', cost: 4, cost_type: 'intelligence'},
+      {number: 2, type: 'stocker', name: 'Conjure mana', effect: 8, effect_type: 'intelligence', cost: 4, cost_type: 'intelligence'},
+      {number: 2, type: 'stocker', name: 'Conjure swords', effect: 8, effect_type: 'energy', cost: 4, cost_type: 'intelligence'},
+      {number: 2, type: 'destroyer', name: 'Crush bricks', effect: 8, effect_type: 'matter', cost: 4, cost_type: 'intelligence'},
+      {number: 3, type: 'destroyer', name: 'Crush mana', effect: 8, effect_type: 'intelligence', cost: 4, cost_type: 'intelligence'},
+      {number: 3, type: 'destroyer', name: 'Crush swords', effect: 8, effect_type: 'energy', cost: 4, cost_type: 'intelligence'},
+      {number: 3, type: 'trainer', name: 'Wizard', effect: 1, effect_type: 'intelligence', cost: 8, cost_type: 'intelligence'},
+      {number: 3, type: 'attacker', name: 'Dragon', effect: 25, cost: 21, cost_type: 'intelligence'},
+      {number: 3, type: 'healer', name: 'Magic repair', effect: 22, cost: 22, cost_type: 'intelligence'},
+      {number: 2, type: 'blanket', name: 'Doom', effect: 1, cost: 45, cost_type: 'intelligence'}
+  ]
+}

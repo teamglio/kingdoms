@@ -1,0 +1,60 @@
+<% player = @game.player(user) %>
+<% opponent = @game.opponent(user) %>
+
+<div><a href=<%= url("/game/#{@game.id}") %>>Refresh</a></div>
+
+<br />
+
+<div>
+  <% if player.turn %>
+    <span style='color: green;'><strong>Your Turn</strong>. <%= (User.get(opponent.user_id).username + " " + opponent.last_move) if opponent.last_move %></span>
+  <% elsif opponent.turn %>
+    <span style='color: red;'><strong>Opponent's Turn</strong></span>
+  <% end %>  
+</div>
+
+</br />
+
+<% if player.turn %>
+  <div style="border: 3px solid green;">
+  <strong>You</strong>
+  <%= erb :vitals, :locals => {:player => player} %>
+  ------
+  <br />
+  <% player.hand.each_with_index do |card, index| %>
+    <span style="color:  <%= @game.vital_colour(card.cost_type) %> ;">
+    <% if player.can_afford?(card) %>
+      <a href=<%= url("/game/#{@game.id}/play/#{index}") %>><%= card.name %></a>:
+    <% else %>
+      <%= card.name %>:
+    <% end %>
+    <%= @game.card_text(card) %>
+    (<%= card.cost.to_s + @game.vital_label(card.cost_type)[0].downcase %>)
+    <a href=<%= url("/game/#{@game.id}/discard/#{index}") %>>X</a>
+    </span>
+    <br />
+    <% end %>  
+<% else %>
+  <div style="border: 1px solid black;">
+  <strong>You</strong>
+  <%= erb :vitals, :locals => {:player => player} %>
+<% end %>
+</div>
+
+<br />
+
+<% if opponent.turn %>  
+  <div style="border: 3px solid red;">
+<% else %>
+  <div style="border: 1px solid black;">
+<% end %>
+  <strong><%= User.get(opponent.user_id).username %></strong>
+  <%= erb :vitals, :locals => {:player => opponent} %>
+</div>
+
+<br />
+
+<div>
+  <a href=<%= url("/game/#{@game.id}") %>>Refresh</a>  | 
+  <a href=<%= url "/game/#{@game.id}/confirm-surrender" %>>Surrender</a>
+</div>

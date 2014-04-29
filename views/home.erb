@@ -1,0 +1,14 @@
+<% unless @active_games.empty? %>
+  <div>
+    <strong>Active games</strong><br />
+    <% @active_games.each do |game| %>
+      <p><a href=<%= url("/game/#{game.id}") %>><%= game.start_date.strftime('%d-%m-%Y') %>: You vs <%= User.get(game.opponent(user).user_id).username %></a></p>
+    <% end %>
+  </div>
+<% end %>
+
+<div>
+  <strong>New game</strong>
+  <p><a href=<%= url('/new-game-vs-player') %>>Play against random <strong>Player</strong></a></p>
+  <p><a href=<%= url('/new-game-vs-friend') %>>Play against <strong>Friend</strong></a></p>
+</div>
