@@ -7,16 +7,16 @@
 
 <div>
   <% if player.turn %>
-    <span style='color: green;'><strong>Your Turn</strong>. <%= (User.get(opponent.user_id).username + " " + opponent.last_move) if opponent.last_move %></span>
+    <span style='color: #1e8a2d;'><strong>Your Turn</strong>. <%= (User.get(opponent.user_id).username + " " + opponent.last_move) if opponent.last_move %></span>
   <% elsif opponent.turn %>
-    <span style='color: red;'><strong>Opponent's Turn</strong></span>
+    <span style='color: #FF0000;'><strong>Opponent's Turn</strong></span>
   <% end %>  
 </div>
 
 </br />
 
 <% if player.turn %>
-  <div style="border: 3px solid green;">
+  <div style="border: 3px solid #1e8a2d;">
   <strong>You</strong>
   <%= erb :vitals, :locals => {:player => player} %>
   ------
@@ -35,7 +35,7 @@
     <br />
     <% end %>  
 <% else %>
-  <div style="border: 1px solid black;">
+  <div style="border: 1px solid #000000;">
   <strong>You</strong>
   <%= erb :vitals, :locals => {:player => player} %>
 <% end %>
@@ -44,9 +44,9 @@
 <br />
 
 <% if opponent.turn %>  
-  <div style="border: 3px solid red;">
+  <div style="border: 3px solid #FF0000;">
 <% else %>
-  <div style="border: 1px solid black;">
+  <div style="border: 1px solid #000000;">
 <% end %>
   <strong><%= User.get(opponent.user_id).username %></strong>
   <%= erb :vitals, :locals => {:player => opponent} %>
