@@ -6,11 +6,11 @@ gem 'thin'
 gem 'sinatra-flash'
 gem 'dm-postgres-adapter'
 gem 'nestful'
+gem 'dotenv'
 
 group :test do
   gem 'rspec' 
   #gem 'rack-test'
   gem 'dm-sqlite-adapter'
-  gem 'dotenv'
   gem 'shotgun'
 end
