@@ -2,13 +2,20 @@
   <div>
     <strong>Active games</strong><br />
     <% @active_games.each do |game| %>
-      <p><a href=<%= url("/game/#{game.id}") %>><%= game.start_date.strftime('%d-%m-%Y') %>: You vs <%= User.get(game.opponent(user).user_id).username %></a></p>
+      <p>
+        <%= game.start_date.strftime('%d-%m-%Y') %>: <a href=<%= url("/game/#{game.id}") %>> You vs <%= User.get(game.opponent(user).user_id).username %></a> 
+        <% if game.player(user).turn %>
+          (<span style='color: #1e8a2d;'>your turn</span>)
+        <% elsif game.opponent(user).turn %>
+          (<span style='color: #FF0000;'>opponent's turn</span>)
+        <% end %>        
+      </p>
     <% end %>
   </div>
 <% end %>
 
 <div>
   <strong>New game</strong>
-  <p><a href=<%= url('/new-game-vs-player') %>>Play against random <strong>Player</strong></a></p>
-  <p><a href=<%= url('/new-game-vs-friend') %>>Play against <strong>Friend</strong></a></p>
+  <p><a href=<%= url('/lobby') %>>Play against a human</a></p>
+  <p><a href=<%= url("/new-game-versus/#{User.all(:username => 'Computer').first.id}") %>>Play against the computer</a></p>
 </div>

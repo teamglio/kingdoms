@@ -1,7 +1,7 @@
 
 
 <div>
-  <p><strong>Kingdoms</strong> is very easy to play if you understand the <strong>basics</strong>.</p>
+  <p>Welcome warrior! <strong>Kingdoms</strong> is very easy to play if you understand the <strong>basics</strong>.</p>
   
   <u><strong>Goal</strong></u>
   <p>A game of Kingdoms is played by <strong>two players</strong>. The <strong>goal</strong> of the game is to <strong>get your <strong style="color: <%= @game_config_file['colours']['health'] %>"><%= @game_config_file['labels']['health'] %></strong> to 100</strong> or to <strong>get your opponent's <strong style="color: <%= @game_config_file['colours']['health'] %>"><%= @game_config_file['labels']['health'] %></strong> to 0</strong>. The game will end if one of those conditions are met.</p> 
@@ -22,4 +22,5 @@
   <p>If you play a card, you will automatically draw another random card so that you always have 8 cards in your hand.</p>
   <p>If you don't want a card in your hand, you can <strong>discard</strong> it by clicking the <strong>X</strong>. We will automatically draw another random card for you.</p> 
   <p>Each card does something different. Some of them deal damage to you opponent, others increase your defence, and there are even some cards take take some of your opponent's resources and give it to you! Make sure you read the card description to understand what the card does.</p>
+  <strong><p>That's it! You're ready to conquer your foes! <a href=<%= url('/') %>>Start playing</a>!</p></strong>
 </div>

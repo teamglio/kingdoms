@@ -9,6 +9,7 @@ class Game
   property :active, Boolean
   property :start_date, DateTime
   property :end_date, DateTime
+  property :last_activity_date, DateTime, :default => DateTime.now
   
   has n, :users, :through => Resource
 
@@ -42,7 +43,7 @@ class Game
     elsif card.is_a? Thief
       "transfer #{card.effect} enemy stock"
     elsif card.is_a? Trainer
-      "#{vital_label('matter')} +#{card.effect} per turn"
+      "#{vital_label(card.cost_type)} +#{card.effect} per turn"
     elsif card.is_a? Blanket
       "-#{card.effect} all enemy +#{card.effect} all"
     end
@@ -61,6 +62,7 @@ class Game
   end
 
   def save_game(players) # Not tested
+    update(:last_activity_date => DateTime.now)
     update(:players => nil)
     update(:players => players)
   end

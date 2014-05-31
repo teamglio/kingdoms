@@ -1,0 +1,4 @@
+<strong>Players waiting for a game</strong>
+<% User.all(:in_lobby => true).each do |user| %>
+    <p><a href=<%= url("/new-game-versus/#{user.id}") %>><%= user.username %></a></p>
+<% end %>
