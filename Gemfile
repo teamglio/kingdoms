@@ -8,6 +8,8 @@ gem 'sinatra-flash'
 gem 'dm-postgres-adapter'
 gem 'nestful'
 gem 'dotenv'
+gem 'aws-sdk'
+
 
 group :test do
   gem 'rspec' 

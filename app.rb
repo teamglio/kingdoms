@@ -5,10 +5,18 @@ require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/flash'
 require 'nestful'
+require 'aws-sdk'
 require_relative 'lib/kingdoms.rb'
 
 enable :sessions
 register Sinatra::Flash
+
+configure do
+  AWS.config(
+    :access_key_id => ENV['AWS_KEY'],
+    :secret_access_key => ENV['AWS_SECRET']
+  )
+end
 
 helpers do
   def game_config_file_path
@@ -207,4 +215,19 @@ end
 
 get '/stats' do
   erb "Users: #{User.all.count} <br /> Active games: #{Game.all(:active => true).size} <br /> Inactive games: #{Game.all(:active => false).size}"
+end
+
+get '/feedback' do
+  erb :feedback
+end
+
+post '/feedback' do
+  ses = AWS::SimpleEmailService.new
+  ses.send_email(
+    :subject => 'Kingdoms feedback',
+    :from => 'mxitappfeedback@glio.co.za',
+    :to => 'mxitappfeedback@glio.co.za',
+    :body_text => Time.now.strftime('%d-%m-%Y') + ' : ' + params['feedback'] + ' - ' + MxitUser.new(request.env).user_id
+    )
+  erb "Thanks! <a href='/'>Back</a>" 
 end
