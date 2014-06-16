@@ -46,7 +46,7 @@ helpers do
     end
   end
   def check_for_available_game_slots!
-    halt erb("Sorry, you've reached the maximum number of simultaneous games. Please finish some games first. <a href=#{url('/')}>Back</a>") unless user.games(:active => true).size < 3 #need to move to config
+    halt erb("Sorry, you've reached the maximum number of simultaneous games. Please finish some games first. <a href=#{url('/')}>Back</a>") unless user.games(:active => true).size < 10 #need to move to config
   end
   def new_game(opponent)
     game_creator = GameCreator.new
