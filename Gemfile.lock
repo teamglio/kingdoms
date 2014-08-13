@@ -122,6 +122,7 @@ DEPENDENCIES
   dm-sqlite-adapter
   dotenv
   nestful
+  rack-test
   rspec
   shotgun
   sinatra
