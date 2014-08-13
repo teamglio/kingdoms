@@ -13,7 +13,7 @@ gem 'aws-sdk'
 
 group :test do
   gem 'rspec' 
-  #gem 'rack-test'
+  gem 'rack-test'
   gem 'dm-sqlite-adapter'
   gem 'shotgun'
 end

@@ -53,7 +53,7 @@ helpers do
     game = game_creator.new_game(user, opponent, game_config_file_path)
     user.update(:in_lobby => false)
     opponent.update(:in_lobby => false)
-    redirect to "/game/#{game.id}"    
+    redirect to "/game/#{game.id}"
   end
   def playing_ai?(opponent)
     ai = User.all(:username => "Computer").first
@@ -73,7 +73,7 @@ before do
   begin
     @mixup_ad = Nestful.get("http://serve.mixup.hapnic.com/#{ENV['MXIT_APP_NAME']}").body
   rescue
-    @mixup_ad = 'Nothing to see here for now...'    
+    @mixup_ad = 'Nothing to see here for now...'
   end
 end
 
@@ -104,8 +104,6 @@ post '/new-user' do
   end
 end
 
-#Collapse "new game routes" into one
-
 get '/lobby' do
   user.update(:in_lobby => true)
   erb :lobby
@@ -120,38 +118,6 @@ get '/new-game-versus/:player_id' do
     erb "You can't play against yourself! <a href='/'>Back</a>"
   end
 end
-
-=begin
-get '/new-game-vs-random-player' do
-  user.update(:in_lobby => true)
-  random_user_in_lobby = User.all(:in_lobby => true).sample
-  if random_user_in_lobby && random_user_in_lobby != user
-    new_game(random_user_in_lobby)
-  else
-    erb "There are currently no available opponents. Please <a href='/'>try again</a> in a minute or so."
-  end
-end
-
-
-get '/new-game-vs-player' do #I'll have to do something with this route...
-  #if user.games(:active => true).size < 3
-    check_for_available_game_slots!
-    random_user_in_lobby = User.all(:in_lobby => true).sample
-    user.update(:in_lobby => true)
-    if random_user_in_lobby && random_user_in_lobby != user
-      game_creator = GameCreator.new
-      game = game_creator.new_game(user, random_user_in_lobby, game_config_file_path)
-      user.update(:in_lobby => false)
-      random_user_in_lobby.update(:in_lobby => false)
-      redirect to "/game/#{game.id}"
-    else
-      erb "There are currently no available opponents. Please <a href='/'>try again</a> in a minute or so."
-    end
-  #else
-  #  erb "Sorry, you've reached the maximum number of simultaneous games."
-  #end
-end
-=end
 
 get '/game/:game_id' do
   @game = Game.get(params[:game_id])
